@@ -1,6 +1,9 @@
 [mysqld]
-mysql_native_password=ON
 log_bin = /var/log/mysql/mysql-bin.log
 relay_log = /var/log/mysql/mysql-relay-bin.log
 binlog_format = ROW
 log_slave_updates = ON
+caching_sha2_password_auto_generate_rsa_keys = OFF
+ssl-ca=/etc/mysql/ssl/ca-cert.pem
+ssl-cert=/etc/mysql/ssl/server-cert.pem
+ssl-key=/etc/mysql/ssl/server-key.pem

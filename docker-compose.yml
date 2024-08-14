@@ -1,7 +1,7 @@
 services:
     db1:
         container_name: demo-db1
-        image: mysql:8
+        image: mysql:9
         environment:
             MYSQL_ROOT_PASSWORD: root1
             MYSQL_DATABASE: app1
@@ -12,11 +12,12 @@ services:
             - ./db/replication.cnf:/etc/mysql/conf.d/replication.cnf
             - ./db/db1/replication_host.cnf:/etc/mysql/conf.d/replication_host.cnf
             - ./db/db1/log:/var/log/mysql
+            - ./db/certs:/etc/mysql/ssl
         networks:
             - local
     db2:
         container_name: demo-db2
-        image: mysql:8
+        image: mysql:9
         environment:
             MYSQL_ROOT_PASSWORD: root2
             MYSQL_DATABASE: app2
@@ -27,6 +28,7 @@ services:
             - ./db/replication.cnf:/etc/mysql/conf.d/replication.cnf
             - ./db/db2/replication_host.cnf:/etc/mysql/conf.d/replication_host.cnf
             - ./db/db2/log:/var/log/mysql
+            - ./db/certs:/etc/mysql/ssl
         networks:
             - local
 

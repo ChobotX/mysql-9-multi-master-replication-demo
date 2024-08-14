@@ -1,5 +1,7 @@
 # Multi master replication demo for MySQL 9
 ## Setup
+#### Generate certificates
+`bash generate-certs.sh`
 #### Spin up docker containers
 `docker-compose up -d`
 #### Connect to the db1 container
