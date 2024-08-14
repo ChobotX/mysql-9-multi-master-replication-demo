@@ -1,0 +1,35 @@
+services:
+    db1:
+        container_name: demo-db1
+        image: mysql:8
+        environment:
+            MYSQL_ROOT_PASSWORD: root1
+            MYSQL_DATABASE: app1
+            MYSQL_USER: app1
+            MYSQL_PASSWORD: app1
+        volumes:
+            - ./db/db1/data:/var/lib/mysql
+            - ./db/replication.cnf:/etc/mysql/conf.d/replication.cnf
+            - ./db/db1/replication_host.cnf:/etc/mysql/conf.d/replication_host.cnf
+            - ./db/db1/log:/var/log/mysql
+        networks:
+            - local
+    db2:
+        container_name: demo-db2
+        image: mysql:8
+        environment:
+            MYSQL_ROOT_PASSWORD: root2
+            MYSQL_DATABASE: app2
+            MYSQL_USER: app2
+            MYSQL_PASSWORD: app2
+        volumes:
+            - ./db/db2/data:/var/lib/mysql
+            - ./db/replication.cnf:/etc/mysql/conf.d/replication.cnf
+            - ./db/db2/replication_host.cnf:/etc/mysql/conf.d/replication_host.cnf
+            - ./db/db2/log:/var/log/mysql
+        networks:
+            - local
+
+networks:
+    local:
+        driver: bridge

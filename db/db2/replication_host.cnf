@@ -1,0 +1,7 @@
+[mysqld]
+
+# Host specific replication configuration
+server-id = 2
+binlog_do_db = demo
+auto_increment_offset = 2
+auto_increment_increment = 2
