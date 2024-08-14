@@ -13,3 +13,6 @@
 #### Connect to the MySQL server
 `mysql -u root -p"root2"`
 #### Follow the instructions in the `db/setup.sql` file to set and test the replication
+
+### Thanks
+Followed tutorial from [here](https://hevodata.com/learn/mysql-master-master-replication/)
