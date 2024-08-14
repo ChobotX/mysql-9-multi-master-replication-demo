@@ -1,3 +1,5 @@
+#!/bin/bash
+mkdir -p db/certs;
 openssl genpkey -algorithm RSA -out db/certs/ca-key.pem;
 openssl req -new -x509 -key db/certs/ca-key.pem -out db/certs/ca-cert.pem -days 3650 -subj "/CN=MySQL-CA";
 openssl req -newkey rsa:2048 -days 3650 -nodes -keyout db/certs/server-key.pem -out db/certs/server-req.pem -subj "/CN=db1";
